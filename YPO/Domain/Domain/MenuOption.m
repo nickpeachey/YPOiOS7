@@ -19,5 +19,6 @@
 @dynamic name;
 @dynamic controller;
 @dynamic image;
+@dynamic cellDescription;
 
 @end

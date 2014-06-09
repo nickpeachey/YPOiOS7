@@ -18,5 +18,6 @@
 @property (retain) NSString *name;
 @property (retain) NSString *controller;
 @property (retain) NSData *image;
+@property (retain) NSString *cellDescription;
 
 @end

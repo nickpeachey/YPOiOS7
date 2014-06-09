@@ -14,7 +14,6 @@
 		0E93A0BB1945AE4700918460 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E93A0BA1945AE4700918460 /* main.m */; };
 		0E93A0BF1945AE4700918460 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E93A0BE1945AE4700918460 /* AppDelegate.m */; };
 		0E93A0C21945AE4700918460 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E93A0C01945AE4700918460 /* Main.storyboard */; };
-		0E93A0C51945AE4700918460 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E93A0C41945AE4700918460 /* ViewController.m */; };
 		0E93A0C71945AE4700918460 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E93A0C61945AE4700918460 /* Images.xcassets */; };
 		0E93A0CE1945AE4700918460 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E93A0CD1945AE4700918460 /* XCTest.framework */; };
 		0E93A0CF1945AE4700918460 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E93A0AE1945AE4700918460 /* Foundation.framework */; };
@@ -33,6 +32,8 @@
 		0E93A1351945B0B800918460 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E93A12C1945B0B800918460 /* Security.framework */; };
 		0E93A1361945B0B800918460 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E93A12D1945B0B800918460 /* StoreKit.framework */; };
 		0E93A1371945B0B800918460 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E93A12E1945B0B800918460 /* SystemConfiguration.framework */; };
+		0EB50F121945C24E003CBED9 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EB50F111945C24E003CBED9 /* HomeViewController.m */; };
+		0EB50F161945C532003CBED9 /* HomeViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EB50F151945C532003CBED9 /* HomeViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,8 +58,6 @@
 		0E93A0BD1945AE4700918460 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0E93A0BE1945AE4700918460 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		0E93A0C11945AE4700918460 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		0E93A0C31945AE4700918460 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		0E93A0C41945AE4700918460 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		0E93A0C61945AE4700918460 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		0E93A0CC1945AE4700918460 /* YPO PennineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "YPO PennineTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E93A0CD1945AE4700918460 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -77,6 +76,10 @@
 		0E93A12C1945B0B800918460 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		0E93A12D1945B0B800918460 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		0E93A12E1945B0B800918460 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		0EB50F101945C24E003CBED9 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		0EB50F111945C24E003CBED9 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		0EB50F141945C532003CBED9 /* HomeViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewCell.h; sourceTree = "<group>"; };
+		0EB50F151945C532003CBED9 /* HomeViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,11 +161,9 @@
 		0E93A0B41945AE4700918460 /* YPO Pennine */ = {
 			isa = PBXGroup;
 			children = (
-				0E93A0BD1945AE4700918460 /* AppDelegate.h */,
-				0E93A0BE1945AE4700918460 /* AppDelegate.m */,
-				0E93A0C01945AE4700918460 /* Main.storyboard */,
-				0E93A0C31945AE4700918460 /* ViewController.h */,
-				0E93A0C41945AE4700918460 /* ViewController.m */,
+				0EB50F0F1945C1FD003CBED9 /* Views */,
+				0EB50F0E1945C1F9003CBED9 /* Models */,
+				0EB50F0D1945C1F5003CBED9 /* Controllers */,
 				0E93A0C61945AE4700918460 /* Images.xcassets */,
 				0E93A0B51945AE4700918460 /* Supporting Files */,
 			);
@@ -172,6 +173,8 @@
 		0E93A0B51945AE4700918460 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0E93A0BD1945AE4700918460 /* AppDelegate.h */,
+				0E93A0BE1945AE4700918460 /* AppDelegate.m */,
 				0E93A1201945AF5A00918460 /* application.plist */,
 				0E93A0B61945AE4700918460 /* YPO Pennine-Info.plist */,
 				0E93A0B71945AE4700918460 /* InfoPlist.strings */,
@@ -197,6 +200,40 @@
 				0E93A0D61945AE4700918460 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0EB50F0D1945C1F5003CBED9 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0EB50F101945C24E003CBED9 /* HomeViewController.h */,
+				0EB50F111945C24E003CBED9 /* HomeViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		0EB50F0E1945C1F9003CBED9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		0EB50F0F1945C1FD003CBED9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0EB50F131945C51F003CBED9 /* Custom */,
+				0E93A0C01945AE4700918460 /* Main.storyboard */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		0EB50F131945C51F003CBED9 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				0EB50F141945C532003CBED9 /* HomeViewCell.h */,
+				0EB50F151945C532003CBED9 /* HomeViewCell.m */,
+			);
+			name = Custom;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -297,9 +334,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0E93A0C51945AE4700918460 /* ViewController.m in Sources */,
 				0E93A0BF1945AE4700918460 /* AppDelegate.m in Sources */,
 				0E93A0BB1945AE4700918460 /* main.m in Sources */,
+				0EB50F161945C532003CBED9 /* HomeViewCell.m in Sources */,
+				0EB50F121945C24E003CBED9 /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -516,6 +554,7 @@
 				0E93A0DF1945AE4700918460 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0E93A0E01945AE4700918460 /* Build configuration list for PBXNativeTarget "YPO PennineTests" */ = {
 			isa = XCConfigurationList;
@@ -524,6 +563,7 @@
 				0E93A0E21945AE4700918460 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
