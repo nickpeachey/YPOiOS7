@@ -23,6 +23,7 @@
 -(void)loadData
 {
     PFQuery *query = [PFQuery queryWithClassName:@"MenuOption"];
+    query.cachePolicy = kPFCachePolicyCacheElseNetwork;
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         
@@ -70,11 +71,28 @@
 }
 
 
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row % 2 == 1) {
+    return 100;
+    } else {
+        if (indexPath.row == 0) {
+            return 0;
+        } else {
+        return 5;
+        }
+    }
+}
+
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    HomeViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kHomeCellIdentifier];
-    if (indexPath.row % 2 == 0) {
-        MenuOption *menuOption = [self.menuOptions objectAtIndex:indexPath.row];
+    NSInteger row = indexPath.row;
+    static NSString *cellIdentifier = @"Home Cell";
+    if (row % 2 == 1) {
+
+        HomeViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+        
+        MenuOption *menuOption = [self.menuOptions objectAtIndex:row / 2];
         
         cell.titleLabel.text = menuOption.name;
         cell.cellDescription.text = menuOption.cellDescription;
@@ -89,12 +107,11 @@
                 cell.cellImageView.image = image;
             });
         });
-    } else {
-       UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kHomeCellIdentifier]; cell = [[UITableViewCell alloc] init];
+        
+        return cell;
     }
-
     
-    return cell;
+    return [[UITableViewCell alloc] init];
 }
 
 @end
