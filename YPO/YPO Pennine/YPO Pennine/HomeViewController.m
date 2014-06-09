@@ -14,14 +14,18 @@
 
 @interface HomeViewController()
 
--(void)loadData;
+-(void)loadData:(BOOL)forRefresh;
 
 @end
 
 @implementation HomeViewController
 
--(void)loadData
+-(void)loadData:(BOOL)forRefresh
 {
+    if(forRefresh) {
+        [self.refreshControl beginRefreshing];
+    }
+    
     PFQuery *query = [PFQuery queryWithClassName:@"MenuOption"];
     query.cachePolicy = kPFCachePolicyCacheElseNetwork;
     
@@ -32,6 +36,9 @@
         }
         else
         {
+            if(forRefresh) {
+                [self.refreshControl endRefreshing];
+            }
             self.menuOptions = objects;
             [self.tableView reloadData];
         }
@@ -47,9 +54,7 @@
 
 -(void)requestRefresh
 {
-    [self.refreshControl beginRefreshing];
-    [self loadData];
-    [self.refreshControl endRefreshing];
+    [self loadData:YES];
 }
 
 -(void)viewDidLoad
@@ -57,7 +62,7 @@
     [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:0.44 green:0.66 blue:0.86 alpha:1.0]];
     [self.navigationController.navigationBar setTranslucent:NO];
     [self prepareRefreshControl];
-    [self loadData];
+    [self loadData:NO];
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -75,13 +80,14 @@
 {
     if (indexPath.row % 2 == 1) {
     return 100;
-    } else {
-        if (indexPath.row == 0) {
-            return 0;
-        } else {
-        return 5;
-        }
     }
+    else {
+        return 5;
+    }
+}
+
+-(BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
+    return NO;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
