@@ -29,20 +29,18 @@
     PFQuery *query = [PFQuery queryWithClassName:@"MenuOption"];
     query.cachePolicy = kPFCachePolicyCacheElseNetwork;
     
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+        NSArray *result = [query findObjects];
         
-        if (error != nil) {
-            NSLog(@"Error is %@", [error localizedDescription]);
-        }
-        else
-        {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.menuOptions = result;
             if(forRefresh) {
                 [self.refreshControl endRefreshing];
             }
-            self.menuOptions = objects;
             [self.tableView reloadData];
-        }
-    }];
+        });
+    });
 }
 
 -(void)prepareRefreshControl
