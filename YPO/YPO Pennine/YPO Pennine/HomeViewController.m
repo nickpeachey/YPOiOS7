@@ -57,8 +57,8 @@
 
 -(void)viewDidLoad
 {
-    [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:0.44 green:0.66 blue:0.86 alpha:1.0]];
-    [self.navigationController.navigationBar setTranslucent:NO];
+//    [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:0.44 green:0.66 blue:0.86 alpha:1.0]];
+//    [self.navigationController.navigationBar setTranslucent:NO];
     [self prepareRefreshControl];
     [self loadData:NO];
 }
@@ -77,7 +77,7 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row % 2 == 1) {
-    return 100;
+    return 145;
     }
     else {
         return 5;
@@ -100,10 +100,13 @@
         
         cell.titleLabel.text = menuOption.name;
         cell.cellDescription.text = menuOption.cellDescription;
+    
+        cell.backView.layer.shadowOffset = CGSizeMake(1, 0);
+        cell.backView.layer.shadowColor = [[UIColor blackColor] CGColor];
+        cell.backView.layer.shadowRadius = 5;
+        cell.backView.layer.shadowOpacity = .50;
         
-        dispatch_queue_t downloadQueue = dispatch_queue_create("imagequeue", NULL);
-        
-        dispatch_async(downloadQueue, ^{
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
             NSURL *imageUrl = [NSURL URLWithString:[menuOption.image valueForKey:@"url"]];
             NSData *imageUrlData = [NSData dataWithContentsOfURL:imageUrl];
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -115,7 +118,10 @@
         return cell;
     }
     
-    return [[UITableViewCell alloc] init];
+    UITableViewCell *altCell = [[UITableViewCell alloc] init];
+    altCell.backgroundColor = [UIColor lightGrayColor];
+    
+    return altCell;
 }
 
 @end

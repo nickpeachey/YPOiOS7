@@ -13,5 +13,6 @@
 @property (nonatomic, retain) IBOutlet UILabel *titleLabel;
 @property (nonatomic, retain) IBOutlet UIImageView *cellImageView;
 @property (nonatomic, retain) IBOutlet UITextView *cellDescription;
+@property (nonatomic, retain) IBOutlet UIView *backView;
 
 @end
